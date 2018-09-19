@@ -44,5 +44,14 @@ public class change : MonoBehaviour
                 SceneManager.LoadScene("SampleScene");
             }
         }
+        //ゲームを再スタート（タイトルに戻る）
+        else if (nowscene == "gameover"||nowscene=="gameclear")
+        {
+            if (Input.GetKeyDown("return"))//returnキーで戻れるようにしていますが、他のキーに変更しても大丈夫です
+            {
+                //returnキーを押したらタイトルに戻るようにする
+                SceneManager.LoadScene("start");
+            }
+        }
     }
 }
