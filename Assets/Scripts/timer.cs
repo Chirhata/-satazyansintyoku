@@ -40,6 +40,7 @@ public class timer : MonoBehaviour
             if (totalTime <= 0.0140065)
             {
                 totalTime = 0;
+                clear = 0;
                 SceneManager.LoadScene("gameover");
             }
             //泥棒を見つけたら（今は仮なのでreturnキーで代用）ポーズ画面に遷移する
@@ -60,6 +61,7 @@ public class timer : MonoBehaviour
             if (totalTime <= 0.0140065)
             {
                 totalTime = 0;
+                clear = 0;
                 SceneManager.LoadScene("gameover");
             }
             else
@@ -81,6 +83,7 @@ public class timer : MonoBehaviour
             if (totalTime <= 0.0140065)
             {
                 totalTime = 0;
+                clear = 0;
                 SceneManager.LoadScene("gameover");
             }
             else
@@ -89,6 +92,7 @@ public class timer : MonoBehaviour
                 if (Input.GetKeyDown("return"))
                 {
                     timerText.text = "0";
+                    clear = 0;
                     SceneManager.LoadScene("gameclear");
                 }
             }
