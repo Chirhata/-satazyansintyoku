@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Yamauchi/sampleYamauchi.unity
+- path: Assets/Scenes/gameclear.unity
   isLoaded: 1
   isActive: 1
