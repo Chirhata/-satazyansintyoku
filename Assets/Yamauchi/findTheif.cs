@@ -7,14 +7,17 @@ using UnityEngine.EventSystems;
 public class findTheif : MonoBehaviour {
     public Material[] texutureMark = new Material[2];
     GameObject excrumationMark;
-    public Material[] theifTexture = new Material[16];
+    public Material[] theifTexture = new Material[17];
     GameObject theif;
     public AudioClip[] music = new AudioClip[5]; 
     private AudioSource audioSource;
-    private int state = 1;
+    private int state = 0;
     private float timeleft;
-    int i = 0;
-    int j = 0;
+    int i = 8;
+    int start = 8;
+
+    int backLog = 0;
+
 	// Use this for initialization
 	void Start () {
         excrumationMark = GameObject.Find("excrumationMark");
@@ -23,6 +26,7 @@ public class findTheif : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
         timeleft -= Time.deltaTime;
         if (timeleft <= 0.0)
         {
@@ -30,7 +34,10 @@ public class findTheif : MonoBehaviour {
             theif.GetComponent<Renderer>().material = theifTexture[i];
             i++;
         }
-        if (i > 15) i = 0;
+        if(i>start+6)
+        {
+            i = start;
+        }
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -55,62 +62,66 @@ public class findTheif : MonoBehaviour {
     }
 
 
-        // 泥棒が右に動く動作
-    private void MoveRightTheif()
-    {
-        theif.GetComponent<Animator>().SetBool("RightTrigger", true);
-
-    }
 
         //泥棒が左に動く動作
     private void MoveLeftTheif()
     {
         theif.GetComponent<Animator>().SetBool("LeftTrigger", true);
+        start= 0;
+    }
+
+        // 泥棒が右に動く動作
+    private void MoveRightTheif()
+    {
+        theif.GetComponent<Animator>().SetBool("RightTrigger", true);
+        start = 9;
 
     }
+
 
     public void StateCheck(){
 
         switch (state)
         {
             //一番左にいる時
-            case 1:
+            case 0:
 
                 MoveRightTheif();
-                state = 3;
+                state = 1;
                 Debug.Log("in Center");
                 break;
 
             //一番右にいる時
-            case 2:
+            case 3:
 
                 MoveLeftTheif();
-                state = 3;
+                state = 2;
                 Debug.Log("in Center");
                 break;
+
             //どちらも行ける時
-            case 3:
+            default:
+
                 int temp;
                 temp = Random.Range(0, 2);
-
-
                 if (temp == 1)
                 {
-                    state = 2;
+                    state = state + 1;
                     MoveRightTheif();
-                    Debug.Log("in Right");
+                    Debug.Log("move Right");
                     break;
                 }
 
                 else
                 {
-                    state = 1;
+                    state = state - 1;
                     MoveLeftTheif();
-                    Debug.Log("in Left");
+                    Debug.Log("move Left");
                     break;
                 }
                 break;
         }
+
     }
 
     private void TurnOffTrigger(){
@@ -118,12 +129,5 @@ public class findTheif : MonoBehaviour {
         theif.GetComponent<Animator>().SetBool("LeftTrigger", false);
     }
 
-    //毎フレーム泥棒のテクスチャを変更する
-    private void ChangeMaterial(int i)
-    {
-        theif.GetComponent<Renderer>().material = theifTexture[j];
-        j++;
-        if (j > i+8) j = 0;
-    }
 
 }
