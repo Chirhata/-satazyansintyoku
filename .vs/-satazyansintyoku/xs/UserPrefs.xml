@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{855F0186-F666-6CDA-EA79-EB335D40E3A1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Yamauchi/thief_move.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Yamauchi/findTheif.cs">
     <Files>
-      <File FileName="Assets/Scripts/change.cs" Line="52" Column="44" />
+      <File FileName="Assets/Yamauchi/findTheif.cs" Line="73" Column="14" />
       <File FileName="Assets/Yamauchi/mouseMove.cs" Line="21" Column="34" />
-      <File FileName="Assets/Yamauchi/findTheif.cs" Line="17" Column="36" />
       <File FileName="Assets/Yamauchi/thief_move.cs" Line="9" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
