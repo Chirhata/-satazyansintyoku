@@ -2,3 +2,21 @@ sceneSetups:
 - path: Assets/Yamauchi/testScene.unity
   isLoaded: 1
   isActive: 1
+- path: Assets/Scenes/gameover.unity
+  isLoaded: 1
+  isActive: 0
+- path: Assets/Scenes/pose.unity
+  isLoaded: 1
+  isActive: 0
+- path: Assets/Scenes/SampleScene.unity
+  isLoaded: 1
+  isActive: 0
+- path: Assets/Scenes/Stage2.unity
+  isLoaded: 1
+  isActive: 0
+- path: Assets/Scenes/Stage3.unity
+  isLoaded: 1
+  isActive: 0
+- path: Assets/Scenes/Start.unity
+  isLoaded: 1
+  isActive: 0
