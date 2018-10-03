@@ -9,11 +9,13 @@ public class change : MonoBehaviour
 {
     // Use this for initialization
     int count;//timerでclearの値を入れておくための変数
+
     void Start()
     {
         //timerでclearの値をここで使えるようにする
         count = timer.c();
     }
+
     void Update()
     {
         string nowscene = SceneManager.GetActiveScene().name;//プレイヤーがいるシーン名を取得する。ステージの判定などに使う
@@ -35,6 +37,7 @@ public class change : MonoBehaviour
                 }
             }
         }
+
         //スタート画面での処理
         else if (nowscene == "Start")
         {
@@ -44,6 +47,7 @@ public class change : MonoBehaviour
                 SceneManager.LoadScene("SampleScene");
             }
         }
+
         //ゲームを再スタート（タイトルに戻る）
         else if (nowscene == "gameover"||nowscene=="gameclear")
         {
